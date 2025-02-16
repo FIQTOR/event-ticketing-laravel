@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+.nav-shadow {
+  box-shadow: 0px 10px 50px 50px #fefce8;
+}
