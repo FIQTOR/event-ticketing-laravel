@@ -14,7 +14,7 @@
                             alt="event Thumbnail" class="border w-52 md:w-full">
                     </div>
                     <div>
-                        <label for="thumbnail"><b>Menu Thumbnail</b></label><br>
+                        <label for="thumbnail"><b>Event Thumbnail</b></label><br>
                         <input type="file" name="thumbnail" id="thumbnail">
                         @error('thumbnail')
                             <span class="text-red-400">{{ $message }}</span>
@@ -25,7 +25,7 @@
             <div class="flex flex-col gap-4 md:w-full">
 
                 <div>
-                    <h1 class="text-2xl font-bold">Edit Menu</h1>
+                    <h1 class="text-2xl font-bold">Edit Event</h1>
                     <p class="text-neutral-700">You can edit the event</p>
                 </div>
 
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="flex flex-col gap-2">
-                    <label for="description">Description Menu</label>
+                    <label for="description">Description Event</label>
                     <div class="flex flex-col">
                         <textarea name="description" id="description" cols="30" rows="5"
                             class="px-4 py-2 rounded-2xl outline outline-1 focus:outline-amber-900">{{ $event->description }}</textarea>

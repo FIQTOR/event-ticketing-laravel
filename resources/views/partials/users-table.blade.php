@@ -196,11 +196,8 @@
                     <td class="px-4">{{ $user->name }}</td>
                     <td class="px-4">{{ $user->email }}</td>
                     <td class="px-4">
-                        @if ($user->hasRole('admin'))
-                            Admin
-                        @else
-                            User
-                        @endif
+
+                        {{ ucfirst($user->getRoleNames()->isEmpty() ? 'User' : $user->getRoleNames()->first()) }}
                     </td>
                     <td class="px-4">{{ $user->updated_at }}</td>
                     <td class="px-4 rounded-r-full">{{ $user->created_at }}</td>

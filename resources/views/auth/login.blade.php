@@ -34,7 +34,7 @@
                     @error('password')
                         <span class="text-red-400">{{ $message }}</span>
                     @enderror
-                    {{-- <a href="#" class="text-blue-500 hover:opacity-70">Forgot Password?</a> --}}
+                    <a href="{{ route('forgot-password') }}" class="text-blue-300 hover:opacity-70">Forgot Password?</a>
                 </div>
 
                 <button class="w-full py-2 rounded-full bg-white text-black duration-300 hover:bg-neutral-400">Login to

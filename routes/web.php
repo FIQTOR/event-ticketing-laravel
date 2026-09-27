@@ -32,6 +32,15 @@ Route::delete('logout', [AuthController::class, 'logout'])->name('logout')->midd
 Route::get('/profile', function () {
     return view('profile', ['title' => 'Profile']);
 })->name('profile')->middleware('auth');
+Route::put('/profile', [AuthController::class, 'updateProfile'])->name('profile.update')->middleware(['auth']);
+
+// Reset Password
+Route::get('reset-password', function () {
+    return view('auth.reset-password', [
+        'title' => 'Reset Password'
+    ]);
+})->name('reset-password')->middleware(['auth']);
+Route::put('reset-password', [AuthController::class, 'resetPassword'])->name('reset-password.put')->middleware(['auth']);
 
 // Dashboard Route
 Route::get('dashboard', function () {
@@ -96,3 +105,32 @@ Route::get('terms-and-condition', function () {
 Route::get('FAQ', function () {
     return view('FAQ', ['title' => 'Frequently Asked Questions']);
 })->name('FAQ');
+
+// Password Reset Routes
+Route::get('forgot-password', function () {
+    return view('auth.forgot-password', ['title' => 'Forgot Password']);
+})->middleware('guest')->name('password.request');
+
+Route::post('forgot-password', function () {
+    return view('auth.forgot-password', [
+        'Forgot Password'
+    ]);
+})->middleware('guest')->name('forgot-password');
+
+Route::get('auth-reset-password/{email}', function ($email) {
+    $user = User::where('email', $email)->get()->first();
+
+    if (!$user) {
+        return back()->with([
+            'status' => 'failed',
+            'message' => 'Email not registered!'
+        ]);
+    }
+
+    return view('auth.forgot-reset-password', [
+        'title' => 'Reset Password',
+        'user' => $user,
+    ]);
+})->middleware('guest')->name('auth-reset-password');
+
+Route::post('auth-reset-password/{email}', [AuthController::class, 'authResetPassword'])->middleware('guest')->name('authResetPassword');

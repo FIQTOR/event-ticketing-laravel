@@ -22,7 +22,7 @@
 
                 <div class="flex flex-col gap-2">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" class="px-4 py-2 rounded-full border">
+                    <input type="text" name="name" id="name" class="px-4 py-2 rounded-full border text-black">
                     @error('name')
                         <span class="text-red-400">{{ $message }}</span>
                     @enderror
@@ -30,7 +30,7 @@
 
                 <div class="flex flex-col gap-2">
                     <label for="email">Email Address</label>
-                    <input type="email" name="email" id="email" class="px-4 py-2 rounded-full border">
+                    <input type="email" name="email" id="email" class="px-4 py-2 rounded-full border text-black">
                     @error('email')
                         <span class="text-red-400">{{ $message }}</span>
                     @enderror
@@ -38,7 +38,7 @@
 
                 <div class="flex flex-col gap-2">
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" class="px-4 py-2 rounded-full border">
+                    <input type="password" name="password" id="password" class="px-4 py-2 rounded-full border text-black">
                     @error('password')
                         <span class="text-red-400">{{ $message }}</span>
                     @enderror
@@ -47,7 +47,7 @@
                 <div class="flex flex-col gap-2">
                     <label for="password_confirm">Repeat Password</label>
                     <input type="password" name="password_confirm" id="password_confirm"
-                        class="px-4 py-2 rounded-full border">
+                        class="px-4 py-2 rounded-full border text-black">
                     @error('password_confirm')
                         <span class="text-red-400">{{ $message }}</span>
                     @enderror

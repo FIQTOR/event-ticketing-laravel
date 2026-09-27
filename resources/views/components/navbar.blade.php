@@ -1,4 +1,4 @@
-<nav class="fixed w-full h-14 bg-yellow-50 nav-shadow px-14 z-50 border-b">
+<nav class="fixed w-full h-14 bg-yellow-50 nav-shadow px-14 z-50">
     <a href="/#" class="absolute pt-1 w-96 text-2xl font-bold flex gap-4 items-center">
         <img src="{{ asset('icon.webp') }}" alt="" class="h-10">
         <h1>TICKETA</h1>
@@ -28,7 +28,7 @@
             </li>
             <li>
                 <a href="{{ route('register') }}"
-                    class="hover:opacity-70 py-2 px-7 rounded-full border border-black">Register</a>
+                    class="hover:opacity-70 py-2 px-7 rounded-full border border-gray">Register</a>
             </li>
         @endauth
     </ul>

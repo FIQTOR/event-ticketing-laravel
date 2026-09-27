@@ -30,6 +30,16 @@ class AuthController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
             // Regenerate session to prevent session fixation
             $request->session()->regenerate();
+
+            // Check if the authenticated user is an admin
+            if (Auth::user()->hasRole('admin')) {
+                return redirect()->route('dashboard')->with([
+                    'status' => 'success',
+                    'message' => 'Login success, welcome to the dashboard'
+                ]);
+            }
+
+            // Redirect to home for non-admin users
             return redirect()->route('home')->with([
                 'status' => 'success',
                 'message' => 'Login success'
@@ -93,6 +103,56 @@ class AuthController extends Controller
         return redirect()->route('login')->with([
             'status' => 'success',
             'message' => 'Logout success'
+        ]);
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $user = User::findOrFail(Auth::user()->id);
+        $user->name = $request->name;
+        $user->save();
+
+        return back()->with([
+            'status' => 'success',
+            'message' => 'Successfuly updated profile'
+        ]);
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'password' => 'required|string|min:8',
+            'password_confirm' => 'required|string|same:password',
+        ]);
+
+        $user = Auth::user();
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->route('profile')->with([
+            'status' => 'success',
+            'message' => 'Password successfully reset'
+        ]);
+    }
+
+    public function authResetPassword(Request $request, $email)
+    {
+        $request->validate([
+            'password' => 'required|string|min:8',
+            'password_confirmation' => 'required|string|same:password',
+        ]);
+        $user = User::where('email', $email)->get()->first();
+
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->to(route('login'))->with([
+            'status' => 'success',
+            'message' => 'Successfuly reset user password'
         ]);
     }
 }

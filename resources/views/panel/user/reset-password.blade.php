@@ -39,7 +39,7 @@
             </div>
 
             <div class="text-white flex gap-4 w-full">
-                <a href="{{ route('users.edit', $user->uuid) }}"
+                <a href="{{ route('users.edit', $user->id) }}"
                     class="w-full px-4 py-2 text-center bg-red-500 rounded-full hover:opacity-70">Cancel</a>
                 <button class="w-full px-4 py-2 text-center bg-blue-500 rounded-full hover:opacity-70">Reset</button>
             </div>

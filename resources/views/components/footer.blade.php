@@ -94,12 +94,13 @@
         </ul>
         <div class="flex flex-col max-w-sm">
             <h2 class="text-4xl font-orbitron">TICKETA</h2>
-            <p>Ticket Store (Festival, Event, etc)</p>
+            <p class="text-sm md:text-base mt-2 max-w-xs">Your premier destination for all event tickets - concerts,
+                festivals, sports, and more. Experience unforgettable moments with Ticketa.</p>
         </div>
     </div>
     <div class="w-full
                 justify-center flex pt-7">
-        <span class="font-medium">Copyright &copy; 2024 by <span class="font-orbitron">TICKETA</span> |
+        <span class="font-medium">Copyright &copy; 2025 by <span class="font-orbitron">TICKETA</span> |
             All Rights Reserved</span>
     </div>
 </footer>

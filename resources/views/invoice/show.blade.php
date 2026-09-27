@@ -61,10 +61,12 @@
                     @endcan
                 </div>
             </div>
+            @if ($invoice->ticket_status === 'valid')
+                
             <div class="w-1/2 h-fit flex justify-end">
                 <div class="w-fit flex flex-col items-center gap-4">
                     <div class="p-14 bg-white rounded-xl shadow-2xl flex items-center justify-center flex-col gap-7">
-                        <span class="text-5xl font-bold w-full text-center">SCAN QRCODE</span>
+                        <span class="text-5xl font-bold w-full text-center">SCAN BARCODE</span>
                         {!! DNS1D::getBarcodeHTML($invoice->invoice_number, 'C39') !!}
                         <div class="flex justify-between items-center gap-4">
                             <span class="font-bold">{{ $invoice->invoice_number }}</span>
@@ -74,6 +76,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </main>
     <script>

@@ -32,13 +32,29 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        return [
+        $user = [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];
+
+        // Assign the 'user' role to each created user
+        return $user;
+    }
+
+    /**
+     * Configure the model factory.
+     *
+     * @return $this
+     */
+    public function configure()
+    {
+        return $this->afterCreating(function ($user) {
+            // Assign the default 'user' role to the created user
+            $user->assignRole('user');
+        });
     }
 
     /**

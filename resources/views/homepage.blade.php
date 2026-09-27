@@ -18,7 +18,7 @@
     <main class="flex flex-col gap-14 py-14">
         <section id="top-popular" class="px-14">
             <h2 class="font-bold text-4xl pb-4">TOP POPULAR EVENT</h2>
-            <div class="grid grid-cols-2 gap-2">
+            <div class="grid grid-cols-2 gap-14">
                 @foreach ($popularEvents as $event)
                     <div class="w-full h-max relative">
                         <img src="{{ Str::startsWith($event->thumbnail, 'https://') ? $event->thumbnail : asset('storage/' . $event->thumbnail) }}"

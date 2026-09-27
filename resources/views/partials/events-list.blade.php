@@ -1,4 +1,4 @@
-<ul class="grid grid-cols-2 gap-2">
+<ul class="grid grid-cols-2 gap-14">
     @foreach ($events as $event)
         @if (!$event->isTopPopular)
             <li class="w-full h-max relative">

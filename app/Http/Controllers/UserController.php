@@ -151,8 +151,9 @@ class UserController extends Controller
 
     public function editPassword($id)
     {
+        $title = 'Edit User Password';
         $user = User::findOrFail($id);
-        return view('panel.user.reset-password', compact('user'));
+        return view('panel.user.reset-password', compact('title', 'user'));
     }
 
     public function updateUserPassword(Request $request, $id)

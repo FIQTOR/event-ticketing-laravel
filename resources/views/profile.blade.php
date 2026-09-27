@@ -4,8 +4,9 @@
     <main class="w-full h-screen py-28 px-14">
         <h1 class="font-bold text-4xl">My Profile</h1>
 
-        <form action="#" method="POST" class="w-full max-w-sm flex flex-col gap-4 py-4">
-
+        <form action="{{ route('profile.update') }}" method="POST" class="w-full max-w-sm flex flex-col gap-4 py-4">
+            @csrf
+            @method('PUT')
             <div class="flex flex-col gap-2">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" class="px-4 py-2 rounded-full border"
@@ -27,6 +28,7 @@
             <button class="w-full py-2 rounded-full bg-yellow-100">Update</button>
         </form>
 
+        <a href="{{ route('reset-password') }}" class="text-blue-400 hover:opacity-70">Reset my password</a>
         <form action="{{ route('logout') }}" method="POST">
             @csrf
             @method('DELETE')
